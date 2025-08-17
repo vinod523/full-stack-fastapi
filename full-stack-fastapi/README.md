@@ -103,6 +103,43 @@ python -c "import secrets; print(secrets.token_urlsafe(32))"
 
 Copy the content and use that as password / secret key. And run that again to generate another secure key.
 
+## What You Get
+
+When you create a new project from this template, you'll get a complete full-stack application with:
+
+```
+your-new-project/
+├── backend/                 # FastAPI backend
+│   ├── app/
+│   │   ├── api/            # API routes
+│   │   ├── core/           # Core settings, security, database
+│   │   ├── models.py       # Database models
+│   │   └── tests/          # Backend tests
+│   ├── Dockerfile
+│   └── pyproject.toml      # Python dependencies
+├── frontend/               # React frontend
+│   ├── src/
+│   │   ├── client/         # Auto-generated API client
+│   │   ├── components/     # React components
+│   │   └── routes/         # App routes
+│   ├── package.json        # Node.js dependencies
+│   └── Dockerfile
+├── .github/workflows/      # CI/CD pipelines
+├── docker-compose.yml      # Local development setup
+├── .env                    # Environment configuration
+└── README.md              # Project documentation
+```
+
+### Features Included
+
+- 🔐 **Authentication & Authorization**: JWT-based auth with user management
+- 📊 **Database**: PostgreSQL with SQLModel/SQLAlchemy ORM
+- 🎨 **Modern Frontend**: React with TypeScript, Vite, and Chakra UI
+- 📡 **API Documentation**: Automatic OpenAPI/Swagger docs
+- 🧪 **Testing**: Pytest for backend, comprehensive test suite
+- 🚀 **Deployment Ready**: Docker containers with production configs
+- 🔄 **CI/CD**: GitHub Actions workflows for testing and deployment
+
 ## How To Use It - Alternative With Copier
 
 This repository also supports generating a new project using [Copier](https://copier.readthedocs.io).
@@ -176,6 +213,77 @@ pip install copier
 ```
 
 This script will create a test project and verify that all files are generated correctly and the .env file is properly updated.
+
+### Example Generated .env File
+
+After running Copier with your custom values, your `.env` file will look like this:
+
+```bash
+# Domain and Environment
+DOMAIN=localhost
+ENVIRONMENT=local
+
+# Your Project Configuration
+PROJECT_NAME='My Awesome FastAPI Project'
+STACK_NAME=my-awesome-fastapi-project
+
+# Security (automatically updated with your values)
+SECRET_KEY=your-generated-secret-key-here
+FIRST_SUPERUSER=admin@yourcompany.com
+FIRST_SUPERUSER_PASSWORD=your-secure-password
+POSTGRES_PASSWORD=your-db-password
+
+# CORS Configuration
+BACKEND_CORS_ORIGINS="http://localhost,http://localhost:5173,https://localhost,https://localhost:5173"
+
+# Email Configuration (optional)
+SMTP_HOST=
+SMTP_USER=
+SMTP_PASSWORD=
+EMAILS_FROM_EMAIL=info@yourcompany.com
+
+# Database Configuration
+POSTGRES_SERVER=localhost
+POSTGRES_PORT=5432
+POSTGRES_DB=app
+POSTGRES_USER=postgres
+
+# Optional: Monitoring
+SENTRY_DSN=
+```
+
+## Troubleshooting
+
+### Common Issues
+
+**Copier not found**
+```bash
+pip install copier
+# or
+pipx install copier
+```
+
+**Template generation fails**
+- Make sure you have the `--trust` flag when using Copier
+- Ensure you have write permissions in the target directory
+- Check that all required parameters are provided
+
+**Docker build fails**
+- Ensure Docker and Docker Compose are installed and running
+- Check network connectivity for downloading dependencies
+- Verify .env file has correct values (no "changethis" values in production)
+
+**Environment variable issues**
+- Run the validation script to check template generation: `./scripts/test-template.sh`
+- Manually verify .env file contents after generation
+- Use the secret key generation command: `python -c "import secrets; print(secrets.token_urlsafe(32))"`
+
+### Getting Help
+
+If you encounter issues:
+1. Check the [GitHub Issues](https://github.com/vinod523/full-stack-fastapi/issues)
+2. Run the template validation script to verify setup
+3. Review the documentation in [development.md](./development.md) and [deployment.md](./deployment.md)
 
 ## Backend Development
 
