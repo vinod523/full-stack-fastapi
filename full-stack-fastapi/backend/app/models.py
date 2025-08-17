@@ -1,3 +1,4 @@
+from datetime import datetime
 from sqlmodel import Field, Relationship, SQLModel
 
 
@@ -8,10 +9,16 @@ class UserBase(SQLModel):
     is_active: bool = True
     is_superuser: bool = False
     full_name: str | None = None
+    created_at: datetime | None = Field(default_factory=datetime.now)
+    updated_at: datetime | None = Field(default_factory=datetime.now)
 
 
 # Properties to receive via API on creation
-class UserCreate(UserBase):
+class UserCreate(SQLModel):
+    email: str = Field(unique=True, index=True)
+    is_active: bool = True
+    is_superuser: bool = False
+    full_name: str | None = None
     password: str
 
 
@@ -24,9 +31,13 @@ class UserCreateOpen(SQLModel):
 
 # Properties to receive via API on update, all are optional
 # TODO replace email str with EmailStr when sqlmodel supports it
-class UserUpdate(UserBase):
-    email: str | None = None  # type: ignore
+class UserUpdate(SQLModel):
+    email: str | None = None
+    is_active: bool | None = None
+    is_superuser: bool | None = None
+    full_name: str | None = None
     password: str | None = None
+    updated_at: datetime | None = Field(default_factory=datetime.now)
 
 
 # TODO replace email str with EmailStr when sqlmodel supports it
@@ -61,16 +72,21 @@ class UsersOut(SQLModel):
 class ItemBase(SQLModel):
     title: str
     description: str | None = None
+    created_at: datetime | None = Field(default_factory=datetime.now)
+    updated_at: datetime | None = Field(default_factory=datetime.now)
 
 
 # Properties to receive on item creation
-class ItemCreate(ItemBase):
+class ItemCreate(SQLModel):
     title: str
+    description: str | None = None
 
 
 # Properties to receive on item update
-class ItemUpdate(ItemBase):
-    title: str | None = None  # type: ignore
+class ItemUpdate(SQLModel):
+    title: str | None = None
+    description: str | None = None
+    updated_at: datetime | None = Field(default_factory=datetime.now)
 
 
 # Database model, database table inferred from class name
