@@ -1,7 +1,16 @@
 # Full Stack FastAPI Template
 
-<a href="https://github.com/tiangolo/full-stack-fastapi-template/actions?query=workflow%3ATest" target="_blank"><img src="https://github.com/tiangolo/full-stack-fastapi-template/workflows/Test/badge.svg" alt="Test"></a>
-<a href="https://coverage-badge.samuelcolvin.workers.dev/redirect/tiangolo/full-stack-fastapi-template" target="_blank"><img src="https://coverage-badge.samuelcolvin.workers.dev/tiangolo/full-stack-fastapi-template.svg" alt="Coverage"></a>
+<a href="https://github.com/vinod523/full-stack-fastapi/actions?query=workflow%3ATest" target="_blank"><img src="https://github.com/vinod523/full-stack-fastapi/workflows/Test/badge.svg" alt="Test"></a>
+<a href="https://coverage-badge.samuelcolvin.workers.dev/redirect/vinod523/full-stack-fastapi" target="_blank"><img src="https://coverage-badge.samuelcolvin.workers.dev/vinod523/full-stack-fastapi.svg" alt="Coverage"></a>
+
+**🚀 Quick Start: Create a New Project**
+
+This repository is a template for creating full-stack web applications with FastAPI (Python) and React (TypeScript). You can create a new project from this template in two ways:
+
+1. **Use GitHub's "Use this template" button** (easiest way)
+2. **Use Copier** (for more customization options)
+
+Jump to [How To Use It](#how-to-use-it) section below for detailed instructions.
 
 ## Technology Stack and Features
 
@@ -25,37 +34,52 @@
 
 ### Dashboard Login
 
-[![API docs](img/login.png)](https://github.com/tiangolo/full-stack-fastapi-template)
+[![API docs](img/login.png)](https://github.com/vinod523/full-stack-fastapi)
 
 ### Dashboard - Admin
 
-[![API docs](img/dashboard.png)](https://github.com/tiangolo/full-stack-fastapi-template)
+[![API docs](img/dashboard.png)](https://github.com/vinod523/full-stack-fastapi)
 
 ### Dashboard - Create User
 
-[![API docs](img/dashboard-create.png)](https://github.com/tiangolo/full-stack-fastapi-template)
+[![API docs](img/dashboard-create.png)](https://github.com/vinod523/full-stack-fastapi)
 
 ### Dashboard - Items
 
-[![API docs](img/dashboard-items.png)](https://github.com/tiangolo/full-stack-fastapi-template)
+[![API docs](img/dashboard-items.png)](https://github.com/vinod523/full-stack-fastapi)
 
 ### Dashboard - User Settings
 
-[![API docs](img/dashboard-user-settings.png)](https://github.com/tiangolo/full-stack-fastapi-template)
+[![API docs](img/dashboard-user-settings.png)](https://github.com/vinod523/full-stack-fastapi)
 
 ### Dashboard - Dark Mode
 
-[![API docs](img/dashboard-dark.png)](https://github.com/tiangolo/full-stack-fastapi-template)
+[![API docs](img/dashboard-dark.png)](https://github.com/vinod523/full-stack-fastapi)
 
 ### Interactive API Documentation
 
-[![API docs](img/docs.png)](https://github.com/tiangolo/full-stack-fastapi-template)
+[![API docs](img/docs.png)](https://github.com/vinod523/full-stack-fastapi)
 
 ## How To Use It
+
+There are three ways to create a new project from this template:
+
+### Option 1: Use GitHub Template (Recommended for beginners)
+
+1. Click the **"Use this template"** button at the top of this GitHub repository
+2. Create a new repository with your desired name
+3. Clone your new repository
+4. Follow the setup instructions below
+
+### Option 2: Fork or Clone
 
 You can **just fork or clone** this repository and use it as is.
 
 ✨ It just works. ✨
+
+### Option 3: Use Copier (Recommended for advanced users)
+
+See the [How To Use It - Alternative With Copier](#how-to-use-it---alternative-with-copier) section below.
 
 ### Configure
 
@@ -108,16 +132,16 @@ Decide a name for your new project's directory, you will use it below. For examp
 Go to the directory that will be the parent of your project, and run the command with your project's name:
 
 ```bash
-copier copy https://github.com/tiangolo/full-stack-fastapi-template my-awesome-project --trust
+copier copy https://github.com/vinod523/full-stack-fastapi my-awesome-project --trust
 ```
 
 If you have `pipx` and you didn't install `copier`, you can run it directly:
 
 ```bash
-pipx run copier copy https://github.com/tiangolo/full-stack-fastapi-template my-awesome-project --trust
+pipx run copier copy https://github.com/vinod523/full-stack-fastapi my-awesome-project --trust
 ```
 
-**Note** the `--trust` option is necessary to be able to execute a [post-creation script](https://github.com/tiangolo/full-stack-fastapi-template/blob/master/.copier/update_dotenv.py) that updates your `.env` files.
+**Note** the `--trust` option is necessary to be able to execute a [post-creation script](https://github.com/vinod523/full-stack-fastapi/blob/main/.copier/update_dotenv.py) that updates your `.env` files.
 
 ### Input Variables
 
@@ -138,6 +162,20 @@ The input variables, with their default values (some auto generated) are:
 - `emails_from_email`: (default: `"info@example.com"`) The email account to send emails from, you can set it later in .env.
 - `postgres_password`: (default: `"changethis"`) The password for the PostgreSQL database, stored in .env, you can generate one with the method above.
 - `sentry_dsn`: (default: "") The DSN for Sentry, if you are using it, you can set it later in .env.
+
+### Test Template Generation
+
+To verify that the template generation works correctly, you can run the template validation script:
+
+```bash
+# Make sure you have Copier installed
+pip install copier
+
+# Run the template test script
+./scripts/test-template.sh
+```
+
+This script will create a test project and verify that all files are generated correctly and the .env file is properly updated.
 
 ## Backend Development
 
